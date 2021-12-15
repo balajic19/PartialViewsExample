@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@using PartialViewsExample.Models
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!--<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>-->
+
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Movie List</h1>
+
+    @foreach (var item in Model.Movies)
+    {
+        <div class="row">
+            @{ await Html.RenderPartialAsync("ProductPartial", item); }
+        </div>
+    }
+</div>
